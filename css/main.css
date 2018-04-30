@@ -1,0 +1,83 @@
+/* -------------------------------------------------------------------- */
+/* --------------------- CSS Normalize & General - Start --------------------- */
+/* -------------------------------------------------------------------- */
+a, a:active, a:focus { outline: 0; }
+blockquote, q { quotes: none }
+blockquote:after, blockquote:before, q:after, q:before { content: ''; content: none }
+a { text-decoration: none; transition: all .3s ease-out; -webkit-transition: all .3s ease-out; -moz-transition: all .3s ease-out; -ms-transition: all .3s ease-out; -o-transition: all .3s ease-out }
+.clearfix:after, .clearfix:before { content: " "; visibility: hidden; display: block; height: 0 }
+input:focus, select:focus { outline-color:#FFFFFF; }
+* { padding:0; margin:0; }
+
+/* -------------------------------------------------------------------- */
+/* --------------------- Global & Bootstrap - Start --------------------- */
+/* -------------------------------------------------------------------- */
+
+html, body { overflow: hidden; overflow-y: auto; font-family:arial; }
+body { }
+a { transition: all 0.3s ease-out; -webkit-transition: all 0.3s ease-out; -moz-transition: all 0.3s ease-out; -ms-transition: all 0.3s ease-out; -o-transition: all 0.3s ease-out; }
+
+/* -------------------------------------------------------------------- */
+/* --------------------- Global Styling - Start --------------------- */
+/* -------------------------------------------------------------------- */
+
+.global-plr-0 { padding-left: 0; padding-right:0; }
+.global-pt-35 { padding-top:35px; }
+h2 { font-size: 18px; color: #000000; }
+.global-pb-20 { padding-bottom: 20px; }
+.content-edit { display: flex; align-items: center; padding-bottom: 20px; }
+p { font-size: 16px; color: #000000; text-align: center; }
+
+
+/* -------------------------------------------------------------------- */
+/* --------------------- content Styling - Start --------------------- */
+/* -------------------------------------------------------------------- */
+
+.spotlight-image { position: relative; max-height: 500px; overflow: hidden; }
+.spotlight-copy { font-size:50px; position: absolute; top:7%; left: 10%; text-shadow: 0px 3px 6px #fff; color: #0b0075; font-family: Calibri, Candara, Segoe, Segoe UI, Arial, sans-serif; font-style: italic; }
+
+.modelDesc { border: 1px solid #000000; width:100%; max-width: 350px; margin: 20px auto 40px; background-color:#eeecec; padding: 15px 5px; }
+.modelDesc > div { background-color:#eeecec; }
+.modelDesc > tbody > tr > td{ padding:15px; border-right:1px solid #FFFFFF; font-size:13px; vertical-align:middle; color:#333333; text-transform:uppercase; text-align:center; font-weight:bold; }
+.modelDesc > tbody > tr > td:first-child{text-align:left;}
+.modelDesc > tbody > tr > td:last-child{border-right:none; text-align: center;}
+.noBottomBorder{border-bottom:none !important;}
+
+.input-text { border: 1px solid lightgrey; width: 200px; float: left; height: 20px; padding: 12px; font-size: 14px; font-weight: normal; margin-bottom: 10px; }
+.btn-submit { border: 1px solid #000000; padding: 7px 14px; background-color: #5a5151; color: #FFFFFF; font-size: 14px; margin: 0 auto; display: block; }
+.btn-submit:hover { background-color: #FFFFFF; color: #5a5151; }
+
+
+
+#contact label{ display: inline-block; width: 100px; float: left; text-align: right; padding-right: 10px; }
+#contact > div{ margin-top: 10px; margin-bottom: 10px; clear: both; }
+textarea{ vertical-align: top; height: 5em; }
+.error{ display: none; margin-left: 10px; }
+.error_show{ color: red; margin-left: 100px; }
+input.invalid, textarea.invalid{ border: 2px solid red; }
+input.valid, textarea.valid{ border: 2px solid green; }
+
+
+/* -------------------------------------------------------------------- */
+/* --------------------- Global Media style - Start --------------------- */
+/* -------------------------------------------------------------------- */
+
+@media screen and (min-width: 320px) and (max-width: 479px) {
+	.modelDesc > tbody > tr > td { font-weight: normal; font-size:12px; }
+	.spotlight-copy { font-size: 26px; top:auto; bottom: 0; }
+	h2 {font-size: 14px;}
+	p {font-size: 13px;  margin-top: 10px;}
+	#contact label { width:70px;}
+	.error_show { margin-left: 70px; font-size: 12px; }
+
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+	.spotlight-copy { font-size: 32px; }
+	h2 {font-size: 16px; }
+	p {font-size: 15px;  margin-top: 10px;}
+}
+
+@media only screen and (min-width : 320px) and (max-width : 767px) {
+.content-edit { display: block; }
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta charset="utf-8">
+    <title>Drive</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="MobileOptimized" content="width" />
+
+    <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="css/main.css" rel="stylesheet" />
+	
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('#contact_name').on('input', function() {
+				var input = $(this);
+				var is_name = input.val();
+				if(is_name){input.removeClass("invalid").addClass("valid");}
+				else{input.removeClass("valid").addClass("invalid");}
+			});
+			
+			<!--Email must be an email -->
+			$('#contact_email').on('input', function() {
+				var input = $(this);
+				var re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+				var is_email = re.test(input.val());
+				if(is_email){input.removeClass("invalid").addClass("valid");}
+				else{input.removeClass("valid").addClass("invalid");}
+			});		
+			<!-- After Form Submitted Validation-->
+			$("#contact_submit button").click(function(event){
+				var form_data = $("#contact").serializeArray();
+				var error_free = true;
+				for (var input in form_data){
+					var element = $("#contact_"+form_data[input]['name']);
+					var valid = element.hasClass("valid");
+					var error_element = $("span", element.parent());
+					if (!valid){error_element.removeClass("error").addClass("error_show"); error_free=false;}
+					else{error_element.removeClass("error_show").addClass("error");}
+				}
+				if (!error_free){
+					event.preventDefault(); 
+				}
+				else{
+					alert('No errors: Form will be submitted');
+				}
+			});
+		});
+	</script>
+
+</head>
+
+<body>
+<div class="container-fluid global-plr-0 spotlight-image">
+	<img src="images/car.jpg" alt="spotlight" title="spotlight" class="img-responsive" />
+	<div class="container">
+		<div class="spotlight-copy">Find Your Next Car Now!</div>
+	</div>
+</div>
+
+<div class="container">
+	<h2 class="global-pb-20">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h2>
+</div>
+
+<div class="container">
+	<div class="row content-edit">
+		<div class="col-xs-12 col-sm-6"><img src="images/car-vintage.jpg" alt="Vintage" title="Vintage" class="img-responsive" /></div>
+		<div class="col-xs-12 col-sm-6">
+			<p>Vintage green car with stylish grille parked in Red Rock Canyon National Conservation Area</p>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row content-edit">		
+		<div class="col-xs-12 col-sm-6 col-sm-push-6"><img src="images/car-courtney.jpg" alt="car" title="car" class="img-responsive" /></div>
+		<div class="col-xs-12 col-sm-6 col-sm-pull-6">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">		
+		<div class="col-xs-12">
+			<form id="contact" method="post" action="" class="modelDesc clearfix">
+				<!-- Name -->
+				<div>
+					<label for="contact_name">Name:</label>
+					<input type="text" id="contact_name" name="name" class="input-text" required>
+					<span class="error">This field is required</span>
+				</div>
+				<!-- Email -->
+				<div>
+					<label for="contact_email">Email:</label>
+					<input type="email" id="contact_email" name="email" class="input-text" required>
+					<span class="error">A valid email address is required</span>				
+				</div>				
+				<!-- Submit Button -->
+				<div id="contact_submit">				
+					<button type="submit" class="btn-submit">Submit</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+	
+
+
+</body>
+</html>
+
